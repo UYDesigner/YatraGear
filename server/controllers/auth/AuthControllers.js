@@ -60,10 +60,15 @@ const loginUser = async (req, res) => {
             id: checkUser._id,
             role: checkUser.role,
             email: checkUser.email,
-            userName : checkUser.userName
+            userName: checkUser.userName
         }, 'CLIENT_SECRET_KET', { expiresIn: '60m' })
 
-        res.cookie('token', token, { httpOnly: true, secure: false }).json({
+        res.cookie('token', token, {
+            httpOnly: true,
+            secure: true,              // must be true for HTTPS
+            sameSite: 'None',          // allow cross-origin
+            maxAge: 7 * 24 * 60 * 60 * 1000 // 7 days
+        }).json({
             success: true,
             error: false,
             user: {
@@ -73,7 +78,8 @@ const loginUser = async (req, res) => {
                 id: checkUser._id
             },
             message: "Enjoy our services"
-        })
+        });
+
 
     } catch (error) {
         // console.log("login mein problem hai ", error)
@@ -118,7 +124,7 @@ const authMiddleware = async (req, res, next) => {
 
     try {
         const decoded = jwt.verify(token, 'CLIENT_SECRET_KET')
-        req.user = decoded; 
+        req.user = decoded;
         next()
     } catch (error) {
         console.log(error)
@@ -136,4 +142,4 @@ const authMiddleware = async (req, res, next) => {
 
 
 
-module.exports = { registerUser, loginUser, logoutUser , authMiddleware}
+module.exports = { registerUser, loginUser, logoutUser, authMiddleware }
