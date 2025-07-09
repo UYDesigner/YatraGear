@@ -32,12 +32,28 @@ const ShopingProductCard = ({ product, handleGetProductDetail, handleAddToCart }
                         className="h-[150px] md:h-[200px] w-full object-contain mx-auto"
                     />
 
-                    <div className={`absolute top-2 left-2 ${isOutOfStock ? 'bg-red-800' : 'bg-green-800'} text-white px-2 py-[2px] sm:text-[10px] text-xs rounded-md`}>
-                        {isOutOfStock ? "Out of Stock" : (product?.isNewArrival ? "New Arrival" : "")}
-                    </div>
+                    {
+                        product.qty === 0 ?
+                            <div className={`absolute top-2 left-2  bg-red-800 text-white px-2 py-[2px] text-[10px] sm:text-xs  rounded-md`}>
+                                Out of Stock
+                            </div>
+                            :
+                            (
+                                product?.isNewArrival ?
+                                    <div className={`absolute top-2 left-2  bg-green-800 text-white px-2 py-[2px] text-[10px] sm:text-xs  rounded-md`}>
+                                        New Arrival
+                                    </div>
+                                    :
+                                    <></>
+                            )
+
+
+                    }
+                   
+
 
                     {hasOffer && (
-                        <div className="absolute top-2 sm:hidden right-2 bg-red-600 text-white px-2 py-[2px] sm:text-[10px] text-xs rounded-md">
+                        <div className="absolute top-2 hidden sm:block right-2 bg-red-600 text-white px-2 py-[2px] text-[10px] sm:text-xs  rounded-md">
                             {Math.round(
                                 ((product.price - product.offerPrice) / product.price) * 100
                             )}
