@@ -8,7 +8,7 @@ const ShopingProductCard = ({ product, handleGetProductDetail, handleAddToCart }
         typeof product?.price === 'number' &&
         product.offerPrice < product.price;
 
-    console.log(product)
+    // console.log(product)
 
 
     return (
