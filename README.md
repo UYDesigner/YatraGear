@@ -3,10 +3,17 @@
 **Explore gear before you explore the world!**  
 YatraGear is a full-stack web application for outdoor lovers to browse, compare, and discover the best camping, trekking, boating, fishing, and travel gear.
 
-🌐 **Live Website:** [YatraGear](https://yatragear-1.onrender.com/shop/home)  
-📦 **GitHub Repository:** [UYDesigner/YatraGear](https://github.com/UYDesigner/YatraGear/)
+🌐 **Live Website:** [YatraGear](https://yatragear-1.onrender.com/shop/home)
 
-![YatraGear Screenshot](https://res.cloudinary.com/dqjieo14h/image/upload/v1752408952/yiy573pxwcnhh9hzo0jd.png)
+---
+
+## 📸 Screenshots
+
+### 🛍 Website View
+![Website Screenshot](https://res.cloudinary.com/dqjieo14h/image/upload/v1752408952/yiy573pxwcnhh9hzo0jd.png)
+
+### 🛠 Admin Panel
+![Admin Panel Screenshot](https://res.cloudinary.com/dqjieo14h/image/upload/v1752409416/espplrwn5filhayarj2c.png)
 
 ---
 
@@ -43,8 +50,6 @@ YatraGear is a full-stack web application for outdoor lovers to browse, compare,
   - MongoDB Atlas (cloud database)
   - Render (hosting)
   - API Gateway
-
-
 
 ---
 
